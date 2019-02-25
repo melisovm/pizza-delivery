@@ -131,6 +131,9 @@ export default new Vuex.Store({
     },
     CURRENT_PRODUCT: (state, product) => {
       state.currentProduct = product;
+    },
+    CLEAR_CART: (state) => {
+      state.cartProducts = ''
     }
   },
   actions: {
@@ -142,6 +145,9 @@ export default new Vuex.Store({
     },
     currentProduct: (context, product) => {
       context.commit('CURRENT_PRODUCT', product);
+    },
+    clearCart: (context) => {
+      context.commit('CLEAR_CART')
     }
   }
 });

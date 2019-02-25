@@ -8,13 +8,14 @@ import Combo from '../components/Combo';
 import Drink from '../components/Drink';
 import Dessert from '../components/Dessert';
 import CartCheck from '../components/CartCheck';
+import MainPage from '../components/MainPage';
 
 Vue.use(Router);
 export default new Router({
   routes: [{
       path: '/',
-      name: 'All Products',
-      component: ProductsList,
+      name: 'MainPage',
+      component: MainPage,
     }, {
       path: '/pizzas',
       name: 'Pizzas',

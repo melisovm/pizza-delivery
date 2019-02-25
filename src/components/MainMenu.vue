@@ -1,7 +1,7 @@
 <template>
   <div class="navbar is-primary">
     <div class="navbar-brand">
-      <strong class="navbar-item"> Please,Choose category</strong>
+      <strong class="navbar-item"> Пожалуйста, выберите категорию</strong>
     </div>
     <div class="navbar-menu">
       <div class="navbar-start">
@@ -20,9 +20,15 @@
         <router-link
           class="navbar-item"
           to="/dessert"
-        >Дессерты</router-link>
+        >Десерты</router-link>
       </div>
       <div class="navbar-end">
+        <div
+          class="navbar-item"
+          v-if="hasProduct()"
+        >
+          В корзине {{getProductsInCart.length}} продукта(ов)
+        </div>
         <div class="navbar-item">
           <router-link
             to="/cart"
@@ -40,8 +46,17 @@
 </template>
 
 <script>
-export default {
+import { mapGetters, mapActions } from 'vuex';
 
+export default {
+  methods: {
+    hasProduct () {
+      return this.getProductsInCart.length > 0;
+    }
+  },
+  computed: {
+    ...mapGetters(['getProductsInCart']),
+  }
 }
 </script>
 
@@ -49,5 +64,8 @@ export default {
 .is-vertical-center {
   display: flex;
   align-items: center;
+}
+.cart-circle {
+  border: 1px solid red;
 }
 </style>
