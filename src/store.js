@@ -133,7 +133,7 @@ export default new Vuex.Store({
       state.currentProduct = product;
     },
     CLEAR_CART: (state) => {
-      state.cartProducts = ''
+      state.cartProducts = [];
     }
   },
   actions: {
