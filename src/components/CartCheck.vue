@@ -1,7 +1,6 @@
 <template>
   <div class="main">
-
-    <div>
+    <div v-if="hasProduct()">
       <ul>
         <li
           v-for="(product, index) in getProductsInCart"
@@ -32,6 +31,16 @@
         class="button is-primary button-clear"
         @click="clear()"
       >Очистить корзину</a>
+
+    </div>
+    <div
+      v-else
+      class="no-item"
+    >
+      <i class="far fa-frown fa-5x"></i>
+      <div class="no-item-text">
+        У Вас нету добавленного продукта
+      </div>
     </div>
 
   </div>
@@ -52,6 +61,8 @@ export default {
     },
     clear () {
       this.clearCart();
+    }, hasProduct () {
+      return this.getProductsInCart.length > 0;
     }
 
   }
@@ -69,5 +80,17 @@ export default {
 .button-clear {
   margin-top: 1em;
   float: right;
+}
+.no-item {
+  text-align: center;
+  font-size: 2em;
+  color: gray;
+  margin-top: 5em;
+}
+.no-item-text {
+  margin-top: 2em;
+}
+.far {
+  color: #fff;
 }
 </style>
