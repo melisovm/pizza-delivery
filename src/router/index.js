@@ -9,6 +9,7 @@ import Drink from '../components/Drink';
 import Dessert from '../components/Dessert';
 import CartCheck from '../components/CartCheck';
 import MainPage from '../components/MainPage';
+import OrderCart from '../components/OrderCart'
 
 Vue.use(Router);
 export default new Router({
@@ -38,6 +39,11 @@ export default new Router({
       path: '/cart',
       name: 'Cart',
       component: CartCheck
+    },
+    {
+      path: '/ordercart',
+      name: 'OrderCart',
+      component: OrderCart
     }
   ]
 });

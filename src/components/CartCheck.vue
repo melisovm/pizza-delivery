@@ -18,6 +18,33 @@
             <div class="navbar-item">
               <h3> {{product.name}}</h3>
             </div>
+            <div class="navbar-item">
+              <a
+                class="button is-rounded is-primary is-inverted"
+                @click="counterController(false,index)"
+              >
+                <i class="fas fa-minus"></i>
+              </a>
+              <input
+                type="text"
+                class="input is-primary input-counter"
+                readonly
+                v-model="product.quantity"
+              >
+              <a
+                class="button is-rounded is-primary is-inverted"
+                @click="counterController(true,index)"
+              >
+                <i class="fas fa-plus"></i>
+              </a>
+              <button
+                class="button"
+                @click="checkButton(index)"
+              >Check</button>
+            </div>
+            <div class="navbar-item">
+              <h3>{{ product.totalPrice || product.price }} сом</h3>
+            </div>
             <div class="navbar-end">
               <a
                 class="button is-rounded is-primary is-inverted"
@@ -27,11 +54,20 @@
           </div>
         </li>
       </ul>
-      <a
-        class="button is-primary button-clear"
-        @click="clear()"
-      >Очистить корзину</a>
-
+      <div class="button-clear">
+        <h2 class="total-text">Всего {{totalPrice}} сом</h2>
+        <div class="buttons total-clear">
+          <router-link
+            to="/ordercart"
+            class="button is-danger"
+            @click="clear()"
+          >Выполнить заказ</router-link>
+          <a
+            class="button is-primary"
+            @click="clear()"
+          >Очистить корзину</a>
+        </div>
+      </div>
     </div>
     <div
       v-else
@@ -42,7 +78,6 @@
         У Вас нету добавленного продукта
       </div>
     </div>
-
   </div>
 </template>
 
@@ -50,19 +85,54 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
+  data () {
+    return {
+      quantity: 0,
+      totalProductPrice: 0,
+    }
+  },
   computed: {
     ...mapGetters(['getProductsInCart']),
+    totalPrice () {
+      console.log(this.getProductsInCart);
+      return this.getProductsInCart.reduce((total, next) =>
+        total + (next.totalPrice || next.price), 0);
+    },
   },
   methods: {
     ...mapActions(['removeProduct',
       'clearCart']),
+    hasProduct () {
+      return this.getProductsInCart.length > 0;
+    },
+    checkButton (index) {
+      // console.log(this.getProductQuantity[index].name, ' - ', this.getProductQuantity[index].quantity);
+      // console.log(this.getProductQuantity[index].price);
+      console.log(this.getProductsInCart[index].totalPrice);
+    },
     remove (index) {
       this.removeProduct(index);
     },
     clear () {
       this.clearCart();
-    }, hasProduct () {
-      return this.getProductsInCart.length > 0;
+    },
+    counterController (checker, index) {
+
+      if (checker == true) {
+        this.getProductsInCart[index].quantity++;
+        this.getProductsInCart[index].totalPrice = this.getProductsInCart[index].quantity * this.getProductsInCart[index].price;
+      }
+      else {
+
+        this.getProductsInCart[index].quantity--;
+        this.getProductsInCart[index].totalPrice = this.getProductsInCart[index].quantity * this.getProductsInCart[index].price;
+        if (this.getProductsInCart[index].quantity <= 0) {
+          this.removeProduct(index);
+        }
+        else {
+
+        }
+      }
     }
 
   }
@@ -76,6 +146,8 @@ export default {
 .panel-block {
   /* margin-bottom: 0.1%; */
   border-radius: 0.3em;
+  display: grid;
+  grid-template-columns: 3% 5fr 1fr 1fr 3%;
 }
 .button-clear {
   margin-top: 1em;
@@ -87,10 +159,20 @@ export default {
   color: gray;
   margin-top: 5em;
 }
+.total-clear {
+  margin-top: 0.5em;
+}
 .no-item-text {
   margin-top: 2em;
 }
+.total-text {
+  font-size: 1.5em;
+}
 .far {
   color: #fff;
+}
+.input-counter {
+  width: 2.5em;
+  cursor: pointer;
 }
 </style>

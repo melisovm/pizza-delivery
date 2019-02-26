@@ -27,7 +27,7 @@
           class="navbar-item"
           v-if="hasProduct()"
         >
-          В корзине {{getProductsInCart.length}} продукта(ов)
+          В корзине {{totalItem}} продукта(ов)
         </div>
         <div class="navbar-item">
           <router-link
@@ -56,6 +56,10 @@ export default {
   },
   computed: {
     ...mapGetters(['getProductsInCart']),
+    totalItem () {
+      return this.getProductsInCart.reduce((total, next) =>
+        total + next.quantity, 0);
+    }
   }
 }
 </script>
