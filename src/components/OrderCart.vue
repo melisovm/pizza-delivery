@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <form
+      @submit.prevent="onSubmit"
       action="#"
       class="field"
     >
@@ -65,23 +66,39 @@
           >Пожалуйста, введите Ваш телефонный номер!</div>
         </div>
       </div>
+      <strong>
+        Ваш заказ:</strong>
+      <ul>
+        <li
+          v-for="(product, index) in getProductsInCart"
+          :key="index"
+        >{{product.name}} x {{product.quantity}} = {{product.quantity*product.price}} сом</li>
+      </ul>
+      <strong>Всего к оплате: {{totalPrice}} сом</strong>
+      <div class="buttons">
+        <button
+          type="submit"
+          class="button is-success"
+          :disabled="submitStatus === 'PENDING'"
+        >Подтвердить заказ</button>
+        <router-link
+          to="/cart"
+          class="button is-danger"
+        >Изменить заказ</router-link>
+      </div>
     </form>
-    <strong>
-      Ваш заказ:</strong>
-    <ul>
-      <li
-        v-for="(product, index) in getProductsInCart"
-        :key="index"
-      >{{product.name}} x {{product.quantity}} = {{product.quantity*product.price}} сом</li>
-    </ul>
-    <strong>Всего к оплате: {{totalPrice}} сом</strong>
-    <div class="buttons">
-      <a class="button is-success">Подтвердить заказ</a>
-      <router-link
-        to="/cart"
-        class="button is-danger"
-      >Изменить заказ</router-link>
-    </div>
+    <p
+      class="typo__p"
+      v-if="submitStatus === 'OK'"
+    >Ваш заказ отправлен, дождитесь ответа оператора!</p>
+    <p
+      class="typo__p"
+      v-if="submitStatus === 'ERROR'"
+    >Пожалуйста заполните формы правильно!</p>
+    <p
+      class="typo__p"
+      v-if="submitStatus === 'PENDING'"
+    >Выполняется...</p>
   </div>
 </template>
 <script>
@@ -93,7 +110,9 @@ export default {
     return {
       name: '',
       phone: '',
-      address: ''
+      address: '',
+      submitStatus: null,
+      product: {}
     }
   },
   validations: {
@@ -104,13 +123,30 @@ export default {
   computed: {
     ...mapGetters(['getProductsInCart']),
     totalPrice () {
-      console.log(this.getProductsInCart);
       return this.getProductsInCart.reduce((total, next) =>
         total + (next.totalPrice || next.price), 0);
     }
   },
   methods: {
-
+    onSubmit () {
+      this.$v.$touch()
+      if (this.$v.$invalid) {
+        this.submitStatus = 'ERROR'
+      } else {
+        const orderCart = {
+          name: this.name,
+          phone: this.phone,
+          address: this.address,
+          orderList: this.getProductsInCart
+        }
+        console.log(orderCart);
+        this.submitStatus = 'PENDING'
+        // Simulating that is information sending to back
+        setTimeout(() => {
+          this.submitStatus = 'OK'
+        }, 2000)
+      }
+    }
   }
 }
 </script>
