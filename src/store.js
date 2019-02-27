@@ -31,6 +31,30 @@ export default new Vuex.Store({
         quantity: 0,
         id: 3,
         totalPrice: 0
+      }, {
+        name: 'Пицца Оливье',
+        description: 'Зеленый горошек, картофель и морковь в кубиках, огурцы маринованные, моцарелла, цыпленок, ветчина из говядины и французский соус с ароматом трюфеля',
+        price: 625,
+        image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/fb0750f4-fadd-4d7f-9324-17959bd67390.jpg',
+        quantity: 0,
+        id: 1,
+        totalPrice: 0
+      }, {
+        name: 'Пепперони-сердце',
+        description: 'Салями, сыр моцарелла и пицца-соус',
+        price: 545,
+        image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/1b3aa54e-efc4-43d5-ab78-33b7f8e57ad4.jpg',
+        quantity: 0,
+        id: 2,
+        totalPrice: 0
+      }, {
+        name: 'Мексиканская',
+        description: 'Лук красный, перец сладкий, пицца-соус, сыр моцарелла, томаты, халапеньо, цыпленок и соус сальса',
+        price: 395,
+        image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/01878c94-ef3c-4a78-88ab-98549e971dbd.jpg',
+        quantity: 0,
+        id: 3,
+        totalPrice: 0
       },
       {
         name: 'Морская',

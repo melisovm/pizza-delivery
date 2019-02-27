@@ -6,7 +6,7 @@
       :key="index"
       class="product"
     >
-      <div class="card">
+      <div class="card card-equal-height">
         <div class="card-image">
           <figure class="image is-4by2">
             <img
@@ -31,10 +31,12 @@
             {{product.description}}
             <br>
           </div>
-          <button
-            class="button is-primary"
-            @click="addProductToCart(product)"
-          >Добавить в корзину</button>
+          <div class="card-footer">
+            <button
+              class="button is-primary"
+              @click="addProductToCart(product)"
+            >Добавить в корзину</button>
+          </div>
         </div>
       </div>
     </li>
@@ -70,6 +72,7 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   margin: 4em 1em 1em 4em;
+  grid-auto-rows: 1fr;
 }
 .card {
   margin: 1em;
