@@ -33,14 +33,16 @@
         >
           <label for="#">Введите телефонный номер</label>
           <br>
-          <input
+          <masked-input
             :class="{ 'is-danger error': $v.phone.$error }"
             v-model="phone"
             type="tel"
+            mask="\+\996 (111) 11-11-11"
             class="input is-primary input-text"
             placeholder="+XXX YYY ZZ ZZ ZZ"
             @blur="$v.phone.$touch()"
-          >
+          />
+          {{phone}}
           <div
             class="error"
             v-if="!$v.phone.required"
@@ -104,6 +106,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import { required } from 'vuelidate/lib/validators'
+import MaskedInput from 'vue-masked-input'
 
 export default {
   data () {
@@ -126,6 +129,9 @@ export default {
       return this.getProductsInCart.reduce((total, next) =>
         total + (next.totalPrice || next.price), 0);
     }
+  },
+  components: {
+    MaskedInput
   },
   methods: {
     onSubmit () {
