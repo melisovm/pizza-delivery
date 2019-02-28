@@ -42,7 +42,6 @@
             placeholder="+XXX YYY ZZ ZZ ZZ"
             @blur="$v.phone.$touch()"
           />
-          {{phone}}
           <div
             class="error"
             v-if="!$v.phone.required"
@@ -81,7 +80,7 @@
         <button
           type="submit"
           class="button is-success"
-          :disabled="submitStatus === 'PENDING'"
+          :disabled="(submitStatus === 'PENDING' || submitStatus === 'ERROR' )"
         >Подтвердить заказ</button>
         <router-link
           to="/cart"
@@ -92,11 +91,11 @@
     <p
       class="typo__p"
       v-if="submitStatus === 'OK'"
-    >Ваш заказ отправлен, дождитесь ответа оператора!</p>
+    >Ваш заказ отправлен, дождитесь звонка оператора!</p>
     <p
-      class="typo__p"
+      class="error"
       v-if="submitStatus === 'ERROR'"
-    >Пожалуйста заполните формы правильно!</p>
+    >Заполняйте все объязательные поля!</p>
     <p
       class="typo__p"
       v-if="submitStatus === 'PENDING'"
@@ -169,13 +168,15 @@ export default {
 input.error {
   animation: shake 0.5s !important;
 }
+.error {
+  color: #ff3860;
+}
 div.error {
 }
 .form-item > .error {
   display: none;
   margin-bottom: 8px;
   font-size: 13.4px;
-  color: #ff3860;
 }
 .form-item.errorInput > .error {
   display: block;
