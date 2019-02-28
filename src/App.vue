@@ -12,11 +12,6 @@ export default {
   name: 'app',
   components: {
     MainMenu
-  },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
   }
 }
 </script>

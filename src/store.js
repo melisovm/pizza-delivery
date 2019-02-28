@@ -193,27 +193,38 @@ export default new Vuex.Store({
     currentProduct: {},
   },
   getters: {
+    //get all pizas.
     getPizzas: state => state.pizzas,
+    //get all combos.
     getCombos: state => state.combos,
+    //get all drinks.
     getDrinks: state => state.drinks,
+    //get all desserts.
     getDesserts: state => state.desserts,
+    //get products in cart
     getProductsInCart: state => state.cartProducts,
+    //get selected product
     getCurrentProduct: state => state.currentProduct,
   },
   mutations: {
+    //adding product to cart.
     ADD_PRODUCT: (state, product) => {
       state.cartProducts.push(product);
       product.quantity++;
     },
+    //deleting product from cart.
     REMOVE_PRODUCT: (state, index) => {
       state.cartProducts.splice(index, 1);
     },
+    //current selected product
     CURRENT_PRODUCT: (state, product) => {
       state.currentProduct = product;
     },
+    //clearing all cart.
     CLEAR_CART: (state) => {
       state.cartProducts = [];
     },
+    //adding product to its quantity.
     INC_PRODUCT: (state, indexOfProduct) => {
       state.cartProducts[indexOfProduct].quantity++;
     }
@@ -231,14 +242,20 @@ export default new Vuex.Store({
         commit('INC_PRODUCT', indexProduct);
       }
     },
-    removeProduct: (context, index) => {
-      context.commit('REMOVE_PRODUCT', index);
+    removeProduct: ({
+      commit
+    }, index) => {
+      commit('REMOVE_PRODUCT', index);
     },
-    currentProduct: (context, product) => {
-      context.commit('CURRENT_PRODUCT', product);
+    currentProduct: ({
+      commit
+    }, product) => {
+      commit('CURRENT_PRODUCT', product);
     },
-    clearCart: (context) => {
-      context.commit('CLEAR_CART')
+    clearCart: ({
+      commit
+    }) => {
+      commit('CLEAR_CART')
     }
   }
 });

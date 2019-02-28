@@ -93,8 +93,8 @@ export default {
   },
   computed: {
     ...mapGetters(['getProductsInCart']),
+    // calculating all total cost.
     totalPrice () {
-      console.log(this.getProductsInCart);
       return this.getProductsInCart.reduce((total, next) =>
         total + (next.totalPrice || next.price), 0);
     },
@@ -102,28 +102,25 @@ export default {
   methods: {
     ...mapActions(['removeProduct',
       'clearCart']),
+    //checks if cart has any product.
     hasProduct () {
       return this.getProductsInCart.length > 0;
     },
-    checkButton (index) {
-      // console.log(this.getProductQuantity[index].name, ' - ', this.getProductQuantity[index].quantity);
-      // console.log(this.getProductQuantity[index].price);
-      console.log(this.getProductsInCart[index].totalPrice);
-    },
+    //deleting the product from Cart.
     remove (index) {
       this.removeProduct(index);
     },
+    //clearing the cart.
     clear () {
       this.clearCart();
     },
+    //controls -/+ buttons 
     counterController (checker, index) {
-
       if (checker == true) {
         this.getProductsInCart[index].quantity++;
         this.getProductsInCart[index].totalPrice = this.getProductsInCart[index].quantity * this.getProductsInCart[index].price;
       }
       else {
-
         this.getProductsInCart[index].quantity--;
         this.getProductsInCart[index].totalPrice = this.getProductsInCart[index].quantity * this.getProductsInCart[index].price;
         if (this.getProductsInCart[index].quantity <= 0) {

@@ -104,7 +104,9 @@
 </template>
 <script>
 import { mapGetters } from 'vuex';
+//validation controlls all 3 inputs to be required.
 import { required } from 'vuelidate/lib/validators'
+//validation controlls phone number input.
 import MaskedInput from 'vue-masked-input'
 
 export default {
@@ -124,15 +126,18 @@ export default {
   },
   computed: {
     ...mapGetters(['getProductsInCart']),
+    //all cost.
     totalPrice () {
       return this.getProductsInCart.reduce((total, next) =>
         total + (next.totalPrice || next.price), 0);
     }
   },
   components: {
+    //used for phone number validation.
     MaskedInput
   },
   methods: {
+    //submit button validation.
     onSubmit () {
       this.$v.$touch()
       if (this.$v.$invalid) {
@@ -146,7 +151,7 @@ export default {
         }
         console.log(orderCart);
         this.submitStatus = 'PENDING'
-        // Simulating that is information sending to back
+        // simulating that is information sending to back.
         setTimeout(() => {
           this.submitStatus = 'OK'
         }, 2000)

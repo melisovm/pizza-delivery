@@ -50,12 +50,14 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
   methods: {
+    //looking for is product is added to cart.
     hasProduct () {
       return this.getProductsInCart.length > 0;
     }
   },
   computed: {
     ...mapGetters(['getProductsInCart']),
+    //counting how many products has cart.
     totalItem () {
       return this.getProductsInCart.reduce((total, next) =>
         total + next.quantity, 0);

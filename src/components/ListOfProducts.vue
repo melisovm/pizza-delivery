@@ -57,9 +57,12 @@ export default {
       'addProduct',
       'currentProduct',
     ]),
+    //adding products to Cart.
     addProductToCart (product) {
       this.addProduct(product);
     },
+    //adding to current product.
+    //will use when application will have more functions
     addCurrentProduct (product) {
       this.currentProduct(product);
     }

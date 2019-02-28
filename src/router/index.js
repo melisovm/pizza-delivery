@@ -1,23 +1,16 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import ProductsList from '../components/ProductsList';
-import ProductItem from '../components/ProductItem';
-import MainMenu from '../components/MainMenu';
 import Pizza from '../components/Pizza';
 import Combo from '../components/Combo';
 import Drink from '../components/Drink';
 import Dessert from '../components/Dessert';
 import CartCheck from '../components/CartCheck';
-import MainPage from '../components/MainPage';
 import OrderCart from '../components/OrderCart'
 
 Vue.use(Router);
 export default new Router({
+  mode: 'history',
   routes: [{
-      path: '/',
-      name: 'MainPage',
-      component: MainPage,
-    }, {
       path: '/pizzas',
       name: 'Pizzas',
       component: Pizza
