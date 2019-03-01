@@ -37,10 +37,7 @@
               >
                 <i class="fas fa-plus"></i>
               </a>
-              <button
-                class="button"
-                @click="checkButton(index)"
-              >Check</button>
+
             </div>
             <div class="navbar-item">
               <h3>{{ product.totalPrice || product.price }} сом</h3>
@@ -143,8 +140,7 @@ export default {
 .panel-block {
   /* margin-bottom: 0.1%; */
   border-radius: 0.3em;
-  display: grid;
-  grid-template-columns: 3% 5fr 1fr 1fr 3%;
+  z-index: 1;
 }
 .button-clear {
   margin-top: 1em;
