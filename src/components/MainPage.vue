@@ -134,7 +134,7 @@ h1.title {
   grid-template-columns: repeat(4, 1fr);
   margin-left: 1rem;
 }
-i:active {
+i:hover {
   color: grey;
 }
 </style>
