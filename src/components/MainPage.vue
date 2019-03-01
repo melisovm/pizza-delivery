@@ -27,7 +27,35 @@
           </div>
         </article>
       </div>
-      <h3 class="subtitle"> <strong>Мы в соц. сетях</strong></h3>
+      <div class="container">
+        <h3 class="subtitle"> <strong>Мы в соц. сетях</strong></h3>
+        <div class=" social-media">
+          <a href="#">
+            <i
+              class="fab fa-facebook fa-4x"
+              style="color:#3b5998"
+            ></i>
+          </a>
+          <a href="#">
+            <i
+              class="fab fa-vk fa-4x"
+              style="color:#45668e"
+            ></i>
+          </a>
+          <a href="#">
+            <i
+              class="fab fa-telegram fa-4x"
+              style="color:#0088cc"
+            ></i>
+          </a>
+          <a href="#">
+            <i
+              class="fab fa-whatsapp fa-4x"
+              style="color:#00d1b2"
+            ></i>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -100,5 +128,13 @@ h1.title {
 }
 .is-rounded {
   border-radius: 50%;
+}
+.social-media {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-left: 1rem;
+}
+i:active {
+  color: grey;
 }
 </style>
