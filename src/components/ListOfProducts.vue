@@ -90,6 +90,8 @@ export default {
   border-top-right-radius: 0.5rem;
   box-shadow: 0 7px 6px -2px rgba(0, 0, 0, 0.19);
 }
+/* Responsiveness */
+/* smartphones */
 @media screen and (max-width: 620px) {
   .cards {
     display: grid;
@@ -98,6 +100,7 @@ export default {
     margin: 2rem;
   }
 }
+/* Tablets */
 @media screen and (min-width: 621px) and (max-width: 768px) {
   .cards {
     display: grid;
@@ -105,7 +108,7 @@ export default {
     grid-gap: 1rem;
   }
 }
-
+/* small laptops and big tablets */
 @media screen and (min-width: 769px) and (max-width: 1170px) {
   .cards {
     display: grid;
@@ -113,6 +116,7 @@ export default {
     grid-gap: 1rem;
   }
 }
+/* laptops */
 @media screen and (min-width: 1171px) {
   .container {
     margin-left: 3rem;
