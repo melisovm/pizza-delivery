@@ -19,24 +19,23 @@
           <div class="media">
             <div class="media-content">
               <p
-                class="title is-6"
+                class="title is-1"
                 @click="addCurrentProduct(product)"
               >{{product.name}}
 
               </p>
-              <p class="subtitle is-7">Цена: {{product.price}} сом</p>
+              <p class="subtitle is-4">Цена: {{product.price}} сом</p>
             </div>
           </div>
-          <div class="content">
-            {{product.description}}
+          <div class="content is-size-3">
+            <div v-if="product.description < 64"> {{product.description}}</div>
+            <div v-if="product.description >= 64">{{product.description.substring(0,63)+"..."}}</div>
             <br>
           </div>
-          <div class="card-footer">
-            <button
-              class="button is-primary"
-              @click="addProductToCart(product)"
-            >Добавить в корзину</button>
-          </div>
+          <button
+            class="button is-primary is-right"
+            @click="addProductToCart(product)"
+          >Добавить в корзину</button>
         </div>
       </div>
     </li>
@@ -71,13 +70,18 @@ export default {
 </script>
 
 <style scoped>
+.is-right {
+  width: 100%;
+}
 .cards {
+  margin: 4em 1em 1em 2em;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  margin: 4em 1em 1em 4em;
-  grid-auto-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 .card {
   margin: 1em;
+}
+.card:hover {
+  box-shadow: 1em;
 }
 </style>

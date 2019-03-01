@@ -163,25 +163,24 @@ export default {
 <style scoped>
 .container {
   margin-top: 2em;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+.field {
+  width: 100%;
 }
 .input-text {
-  width: 30%;
 }
 .buttons {
   margin-top: 1em;
 }
 input.error {
-  animation: shake 0.5s !important;
 }
 .error {
   color: #ff3860;
 }
-div.error {
-}
 .form-item > .error {
   display: none;
-  margin-bottom: 8px;
-  font-size: 13.4px;
 }
 .form-item.errorInput > .error {
   display: block;
