@@ -1,56 +1,54 @@
 <template>
   <div class="main">
     <div v-if="hasProduct()">
-      <ul>
-        <li
-          v-for="(product, index) in getProductsInCart"
-          :key="index"
-        >
-          <div class="panel-block navbar">
-            <div class="navbar-brand">
-              <div class="navbar-item">
-                <img
-                  :src="product.image"
-                  alt=""
-                >
-              </div>
-            </div>
-            <div class="navbar-item">
-              <h3> {{product.name}}</h3>
-            </div>
-            <div class="navbar-item">
-              <a
-                class="button is-rounded is-primary is-inverted"
-                @click="counterController(false,index)"
-              >
-                <i class="fas fa-minus"></i>
-              </a>
-              <input
-                type="text"
-                class="input is-primary input-counter"
-                readonly
-                v-model="product.quantity"
-              >
-              <a
-                class="button is-rounded is-primary is-inverted"
-                @click="counterController(true,index)"
-              >
-                <i class="fas fa-plus"></i>
-              </a>
 
-            </div>
-            <div class="navbar-item">
-              <h3>{{ product.totalPrice || product.price }} сом</h3>
-            </div>
-            <div class="navbar-end">
-              <a
-                class="button is-rounded is-primary is-inverted"
-                @click="remove(index)"
-              ><i class="fas fa-times"></i></a>
-            </div>
+      <div
+        class="columns box is-vcentered"
+        v-for="(product, index) in getProductsInCart"
+        :key="index"
+      >
+        <div class="navbar-brand">
+          <div class="navbar-item ">
+            <img
+              :src="product.image"
+              :alt="product.name"
+            >
           </div>
-        </li>
-      </ul>
+        </div>
+        <div class="navbar-item column is-one-third">
+          <h3> {{product.name}}</h3>
+        </div>
+        <div class="navbar-item">
+          <a
+            class="button is-rounded is-primary is-inverted"
+            @click="counterController(false,index)"
+          >
+            <i class="fas fa-minus"></i>
+          </a>
+          <input
+            type="text"
+            class="input is-primary input-counter"
+            readonly
+            v-model="product.quantity"
+          >
+          <a
+            class="button is-rounded is-primary is-inverted"
+            @click="counterController(true,index)"
+          >
+            <i class="fas fa-plus"></i>
+          </a>
+
+        </div>
+        <div class="navbar-item">
+          <h3>{{ product.totalPrice || product.price }} сом</h3>
+        </div>
+        <div class="navbar-end">
+          <a
+            class="button is-rounded is-primary is-inverted"
+            @click="remove(index)"
+          ><i class="fas fa-times"></i></a>
+        </div>
+      </div>
       <div class="button-clear">
         <h2 class="total-text">Всего {{totalPrice}} сом</h2>
         <div class="buttons total-clear">
@@ -137,8 +135,7 @@ export default {
 .main {
   margin: 2em;
 }
-.panel-block {
-  /* margin-bottom: 0.1%; */
+.columns {
   border-radius: 0.3em;
   z-index: 1;
 }
@@ -167,5 +164,90 @@ export default {
 .input-counter {
   width: 2.5em;
   cursor: pointer;
+}
+/* Responsiveness */
+/* smartphones */
+@media screen and (max-width: 620px) {
+  .navbar-brand {
+    display: none;
+  }
+  .navbar-item > h3 {
+    font-weight: bold;
+  }
+  .navbar-brand > .navbar-item {
+    padding-left: 0;
+  }
+  .navbar-item {
+    padding-left: 0;
+  }
+  .navbar-item > a {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .box {
+    padding-bottom: 0.1rem;
+    padding-top: 0.1rem;
+  }
+  .input-counter {
+    width: 2rem;
+    cursor: pointer;
+  }
+  * {
+    font-size: 0.8rem;
+  }
+  .columns {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+}
+/* Tablets */
+@media screen and (min-width: 621px) and (max-width: 768px) {
+  .navbar-brand > .navbar-item {
+    padding-left: 0;
+  }
+  .navbar-item {
+    padding-left: 0;
+  }
+  .navbar-item > a {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .box {
+    padding-bottom: 0.1rem;
+    padding-top: 0.1rem;
+  }
+  .input-counter {
+    width: 2.5rem;
+    cursor: pointer;
+  }
+
+  .columns {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+}
+/* small laptops and big tablets */
+@media screen and (min-width: 769px) and (max-width: 1088px) {
+  .box {
+    padding-bottom: 0.1rem;
+    padding-top: 0.1rem;
+  }
+  .input-counter {
+    width: 2.5rem;
+    cursor: pointer;
+  }
+  .columns {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+}
+/* laptops */
+@media screen and (min-width: 1171px) {
 }
 </style>
