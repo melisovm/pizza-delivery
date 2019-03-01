@@ -1,12 +1,5 @@
 <template>
-
-  <ul class="cards">
-    <li
-      v-for="(product, index) in products"
-      :key="index"
-      class="product"
-    >
-      <div class="card card-equal-height">
+  <!-- <div class="card card-equal-height">
         <div class="card-image">
           <figure class="image is-4by2">
             <img
@@ -37,10 +30,46 @@
             @click="addProductToCart(product)"
           >Добавить в корзину</button>
         </div>
+      </div> -->
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <ul class="cards">
+          <li
+            v-for="(product, index) in products"
+            :key="index"
+            class="product"
+          >
+            <div class="card card-equal-height">
+              <div class="card-image">
+                <figure class="image is-4by1">
+                  <!-- here add image. -->
+                  <img
+                    class="card-image"
+                    :src="product.image"
+                  ></figure>
+              </div>
+              <div class="card-content">
+                <p class="title has-text-centered">{{product.name}}</p>
+                <div class="content">
+                  <p>{{product.description}}</p>
+                </div>
+              </div>
+              <div class="card-footer">
+                <p class="card-footer-item">
+                  <a
+                    class="button is-primary is-full"
+                    @click="addProductToCart(product)"
+                  >Добавить в корзину</a>
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
-    </li>
+    </div>
+  </div>
 
-  </ul>
 </template>
 
 <script>
@@ -70,18 +99,25 @@ export default {
 </script>
 
 <style scoped>
-.is-right {
-  width: 100%;
+.card-equal-height {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-.cards {
-  margin: 4em 1em 1em 2em;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.card-equal-height .card-footer {
+  margin-top: auto;
 }
 .card {
-  margin: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5rem;
 }
-.card:hover {
-  box-shadow: 1em;
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin: 2rem;
+}
+.is-full {
+  width: 100%;
 }
 </style>
