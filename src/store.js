@@ -190,9 +190,22 @@ export default new Vuex.Store({
       },
     ],
     cartProducts: [],
+    newsOrSales: [{
+        name: 'День Рождения',
+        description: 'В день вашего рождения дарим Пиццу-пирог 25 см! Акция действует по промокоду D120 один раз.',
+        image: 'http://www.metroves.ru/upload/iblock/e71/e7173f9295275c498c4491536ac1a76c.png'
+      },
+      {
+        name: 'Доставим вовремя или за наш счет',
+        description: 'Мы придерживаемся золотых правил и всегда следим за тем, чтобы наши заказы доставлялись вовремя, а лучше даже раньше обещанного времени.',
+        image: 'http://mobile.mypizza.kg:9715/api/ImageFor?id=3115'
+      }
+    ],
     currentProduct: {},
   },
   getters: {
+    //get news or sales
+    getNewsOrSales: state => state.newsOrSales,
     //get all pizas.
     getPizzas: state => state.pizzas,
     //get all combos.

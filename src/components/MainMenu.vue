@@ -5,10 +5,13 @@
   >
     <div class="container">
       <div class="navbar-brand">
-        <p
+        <router-link
+          to="/"
           class="navbar-item"
-          style="font-size:1.5em;"
-        >Доставка пиццы</p>
+          style="font-size:1.5rem"
+        >
+          Доставка пиццы
+        </router-link>
         <div class="navbar-item">
           <!-- <div
             class="navbar-item"
@@ -56,6 +59,15 @@
         :class="{'is-active':isOpen}"
       >
         <div class="navbar-end">
+          <a
+            role="button"
+            @click="isOpen = !isOpen"
+          >
+            <router-link
+              class="navbar-item"
+              to="/"
+            >Главная страница</router-link>
+          </a>
           <a
             role="button"
             @click="isOpen = !isOpen"

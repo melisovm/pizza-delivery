@@ -6,11 +6,16 @@ import Drink from '../components/Drink';
 import Dessert from '../components/Dessert';
 import CartCheck from '../components/CartCheck';
 import OrderCart from '../components/OrderCart'
+import MainPage from '../components/MainPage'
 
 Vue.use(Router);
 export default new Router({
   mode: 'history',
   routes: [{
+      path: '/',
+      name: 'MainPage',
+      component: MainPage
+    }, {
       path: '/pizzas',
       name: 'Pizzas',
       component: Pizza
