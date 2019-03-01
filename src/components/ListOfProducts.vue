@@ -32,7 +32,7 @@
         </div>
       </div> -->
   <div class="container">
-    <div class="columns">
+    <div class="columns is-full">
       <div class="column">
         <ul class="cards">
           <li
@@ -50,7 +50,7 @@
                   ></figure>
               </div>
               <div class="card-content">
-                <p class="title has-text-centered">{{product.name}}</p>
+                <p class="title has-text-centered">{{product.name}} </p>
                 <div class="content">
                   <p>{{product.description}}</p>
                 </div>
@@ -69,7 +69,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -109,15 +108,19 @@ export default {
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 0.5rem;
 }
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 1rem;
   margin: 2rem;
 }
 .is-full {
   width: 100%;
+}
+.card img {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  box-shadow: 0 7px 6px -2px rgba(0, 0, 0, 0.19);
 }
 </style>
