@@ -9,7 +9,7 @@ export default new Vuex.Store({
         name: 'Пицца Оливье',
         description: 'Зеленый горошек, картофель и морковь в кубиках, огурцы маринованные, моцарелла, цыпленок, ветчина из говядины и французский соус с ароматом трюфеля',
         price: 625,
-        image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/fb0750f4-fadd-4d7f-9324-17959bd67390.jpg',
+        image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/fade8c33-27e4-4c84-acd2-4a0138f7baa1.jpg',
         quantity: 0,
         id: 1,
         totalPrice: 0,
@@ -24,7 +24,7 @@ export default new Vuex.Store({
         quantity: 0,
         id: 2,
         totalPrice: 0,
-        halal: false,
+        halal: true,
         date: '1.03.2019'
 
       },
@@ -42,7 +42,7 @@ export default new Vuex.Store({
         name: 'Пицца Оливье',
         description: 'Зеленый горошек, картофель и морковь в кубиках, огурцы маринованные, моцарелла, цыпленок, ветчина из говядины и французский соус с ароматом трюфеля',
         price: 625,
-        image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/fb0750f4-fadd-4d7f-9324-17959bd67390.jpg',
+        image: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/7a005ff3-922d-4be1-8c18-0acfb304ca31.jpg',
         quantity: 0,
         id: 1,
         totalPrice: 0,
