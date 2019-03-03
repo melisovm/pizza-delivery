@@ -14,11 +14,20 @@
                   <img
                     class="card-image"
                     :src="product.image"
-                  ></figure>
+                  >
+                  <div>
+                    <!-- if didnt work this path,the change to src="../../assets/halal.jpeg" -->
+                    <img
+                      class="image-halal"
+                      src="src/assets/halal.jpeg"
+                      v-if="product.halal"
+                    ></div>
+                </figure>
               </div>
               <div class="card-content">
-                <p class="title has-text-centered">{{product.name}} </p>
+                <p class="title has-text-centered">{{product.name}}</p>
                 <div class="content">
+
                   <p>{{product.description}}</p>
                 </div>
               </div>
@@ -85,11 +94,19 @@ export default {
 .is-full {
   width: 100%;
 }
-.card img {
+.card img.card-image {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   box-shadow: 0 7px 6px -2px rgba(0, 0, 0, 0.19);
 }
+.image-halal {
+  position: absolute;
+  top: 0.5rem;
+  max-width: 2em;
+  right: 0.5rem;
+  border-radius: 80%;
+}
+
 /* Responsiveness */
 /* smartphones */
 @media screen and (max-width: 620px) {

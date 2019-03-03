@@ -30,29 +30,17 @@
       <div class="container">
         <h3 class="subtitle"> <strong>Мы в соц. сетях</strong></h3>
         <div class=" social-media">
-          <a href="#">
-            <i
-              class="fab fa-facebook fa-4x"
-              style="color:#3b5998"
-            ></i>
+          <a class="social-media facebook">
+            <i class="fab fa-facebook fa-4x"></i>
           </a>
-          <a href="#">
-            <i
-              class="fab fa-vk fa-4x"
-              style="color:#45668e"
-            ></i>
+          <a class="social-media vk">
+            <i class="fab fa-vk fa-4x"></i>
           </a>
-          <a href="#">
-            <i
-              class="fab fa-telegram fa-4x"
-              style="color:#0088cc"
-            ></i>
+          <a class="social-media telegram">
+            <i class="fab fa-telegram fa-4x"></i>
           </a>
-          <a href="#">
-            <i
-              class="fab fa-whatsapp fa-4x"
-              style="color:#00d1b2"
-            ></i>
+          <a class="social-media whatsapp">
+            <i class="fab fa-whatsapp fa-4x"></i>
           </a>
         </div>
       </div>
@@ -136,5 +124,24 @@ h1.title {
 }
 i:hover {
   color: grey;
+}
+a.social-media {
+  color: grey;
+}
+a.facebook:hover {
+  color: #3b5998;
+  transition: 1s;
+}
+a.vk:hover {
+  color: #45668e;
+  transition: 1s;
+}
+a.telegram:hover {
+  color: #0088cc;
+  transition: 1s;
+}
+a.whatsapp:hover {
+  transition: 1s;
+  color: #00d1b2;
 }
 </style>
