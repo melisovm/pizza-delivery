@@ -21,6 +21,12 @@
                       class="image-halal"
                       src="src/assets/halal.jpeg"
                       v-if="product.halal"
+                    >
+                    <!-- if didnt work this path,the change to src="../../assets/new.png" -->
+                    <img
+                      class="image-new"
+                      src="src/assets/new.png"
+                      v-if="showNew(product.date)"
                     ></div>
                 </figure>
               </div>
@@ -38,6 +44,7 @@
                     @click="addProductToCart(product)"
                   >Добавить в корзину</a>
                 </p>
+                <p class="card-footer-item">{{showNew(product.date)}}</p>
               </div>
             </div>
           </li>
@@ -49,8 +56,18 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+var moment = require('moment');
 
 export default {
+  data () {
+    return {
+      dateToFilter: Date.now()
+    }
+  }, filters: {
+    changeDateFilter (value) {
+
+    }
+  },
   props: ['products'],
   computed: {
     ...mapGetters(['getProductsInCart']),
@@ -60,6 +77,15 @@ export default {
       'addProduct',
       'currentProduct',
     ]),
+    showNew (value) {
+      let duration = moment(Date.now()).diff(moment(value, "DD.MY.YYYY"));
+      if (duration <= 2592000000) {
+        return true
+      }
+      else {
+        return false
+      }
+    },
     //adding products to Cart.
     addProductToCart (product) {
       this.addProduct(product);
@@ -105,6 +131,12 @@ export default {
   max-width: 3em;
   right: 0.5rem;
   border-radius: 80%;
+}
+.image-new {
+  position: absolute;
+  max-width: 4em;
+  top: 0;
+  left: 0;
 }
 
 /* Responsiveness */

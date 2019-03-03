@@ -9,6 +9,7 @@
           to="/"
           class="navbar-item"
           style="font-size:1.5rem"
+          @click="isOpen = false"
         >
           Доставка пиццы
         </router-link>
@@ -114,14 +115,14 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-
 //for responsiveness
 
 export default {
   data () {
     return {
-      isOpen: false
+      isOpen: false,
     }
+
   },
   methods: {
     //looking for is product is added to cart.

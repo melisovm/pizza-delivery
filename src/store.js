@@ -13,7 +13,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 1,
         totalPrice: 0,
-        halal: true
+        halal: true,
+        date: '1.01.2019'
       },
       {
         name: 'Пепперони-сердце',
@@ -23,7 +24,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 2,
         totalPrice: 0,
-        halal: false
+        halal: false,
+        date: '1.03.2019'
 
       },
       {
@@ -34,7 +36,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 3,
         totalPrice: 0,
-        halal: true
+        halal: true,
+        date: '1.03.2018'
       }, {
         name: 'Пицца Оливье',
         description: 'Зеленый горошек, картофель и морковь в кубиках, огурцы маринованные, моцарелла, цыпленок, ветчина из говядины и французский соус с ароматом трюфеля',
@@ -43,7 +46,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 1,
         totalPrice: 0,
-        halal: false
+        halal: false,
+        date: '1.03.2019'
       }, {
         name: 'Пепперони-сердце',
         description: 'Салями, сыр моцарелла и пицца-соус',
@@ -52,7 +56,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 2,
         totalPrice: 0,
-        halal: true
+        halal: true,
+        date: '1.03.2018'
       }, {
         name: 'Мексиканская',
         description: 'Лук красный, перец сладкий, пицца-соус, сыр моцарелла, томаты, халапеньо, цыпленок и соус сальса',
@@ -61,7 +66,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 3,
         totalPrice: 0,
-        halal: true
+        halal: true,
+        date: '1.03.2019'
       },
       {
         name: 'Морская',
@@ -71,7 +77,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 4,
         totalPrice: 0,
-        halal: false
+        halal: false,
+        date: '1.03.2018'
       },
       {
         name: 'Маргарита',
@@ -81,7 +88,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 5,
         totalPrice: 0,
-        halal: true
+        halal: true,
+        date: '1.03.2019'
       },
       {
         name: 'Супермясная',
@@ -91,7 +99,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 6,
         totalPrice: 0,
-        halal: false
+        halal: false,
+        date: '1.03.2018'
       }
     ],
     combos: [{
@@ -103,7 +112,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 7,
         totalPrice: 0,
-        halal: true
+        halal: true,
+        date: '1.03.2019'
       }, {
         name: 'Пепперозавр',
         description: 'Утолит даже зверский аппетит! Пять сытных пицц 30 см с пепперони из говядины: Мясная, Пепперони, Двойная пепперони, Итальянская и Четыре сезона.',
@@ -112,7 +122,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 8,
         totalPrice: 0,
-        halal: false
+        halal: false,
+        date: '1.03.2018'
       },
       {
         name: 'Большая 7-ка',
@@ -122,7 +133,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 9,
         totalPrice: 0,
-        halal: true
+        halal: true,
+        date: '1.03.2019'
       }
     ],
     drinks: [{
@@ -134,6 +146,7 @@ export default new Vuex.Store({
         quantity: 0,
         id: 10,
         totalPrice: 0,
+        date: '1.03.2019'
       },
       {
         name: 'Спрайт',
@@ -143,6 +156,7 @@ export default new Vuex.Store({
         quantity: 0,
         id: 11,
         totalPrice: 0,
+        date: '1.03.2018'
       },
       {
         name: 'Чай холодный Fuse Tea Лимон',
@@ -152,6 +166,7 @@ export default new Vuex.Store({
         quantity: 0,
         id: 12,
         totalPrice: 0,
+        date: '1.03.2019'
       },
       {
         name: 'БонАква негаз',
@@ -161,6 +176,7 @@ export default new Vuex.Store({
         quantity: 0,
         id: 13,
         totalPrice: 0,
+        date: '1.03.2018'
       },
 
     ],
@@ -173,7 +189,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 14,
         totalPrice: 0,
-        halal: true
+        halal: true,
+        date: '1.03.2019'
       },
       {
         name: 'Рулетики с корицей',
@@ -183,7 +200,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 15,
         totalPrice: 0,
-        halal: true
+        halal: true,
+        date: '1.03.2018'
       },
       {
         name: 'Фонданы, 2 шт',
@@ -193,7 +211,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 16,
         totalPrice: 0,
-        halal: true
+        halal: true,
+        date: '1.03.2019'
       },
       {
         name: 'Чизкейк',
@@ -203,7 +222,8 @@ export default new Vuex.Store({
         quantity: 0,
         id: 17,
         totalPrice: 0,
-        halal: true
+        halal: true,
+        date: '1.03.2018'
       },
     ],
     cartProducts: [],
