@@ -39,7 +39,7 @@
             type="tel"
             mask="\+\996 (111) 11-11-11"
             class="input is-primary input-text"
-            placeholder="+XXX YYY ZZ ZZ ZZ"
+            placeholder="+996 (___)__-__-__"
             @blur="$v.phone.$touch()"
           />
           <div
