@@ -80,7 +80,7 @@
         <button
           type="submit"
           class="button is-success"
-          :disabled="(submitStatus === 'PENDING' || submitStatus === 'ERROR' )"
+          :disabled="(submitStatus === 'PENDING')"
         >Подтвердить заказ</button>
         <router-link
           to="/cart"
@@ -147,7 +147,10 @@ export default {
           name: this.name,
           phone: this.phone,
           address: this.address,
-          orderList: this.getProductsInCart
+          orderList: {
+            productID: this.getProductsInCart.map(element => element.id),
+            productQuantity: this.getProductsInCart.map(element => element.quantity),
+          }
         }
         console.log(orderCart);
         this.submitStatus = 'PENDING'

@@ -102,7 +102,7 @@ export default {
 .image-halal {
   position: absolute;
   top: 0.5rem;
-  max-width: 2em;
+  max-width: 3em;
   right: 0.5rem;
   border-radius: 80%;
 }
