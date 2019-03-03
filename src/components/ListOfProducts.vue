@@ -44,7 +44,6 @@
                     @click="addProductToCart(product)"
                   >Добавить в корзину</a>
                 </p>
-                <p class="card-footer-item">{{showNew(product.date)}}</p>
               </div>
             </div>
           </li>
