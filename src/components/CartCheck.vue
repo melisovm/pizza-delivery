@@ -172,7 +172,7 @@ export default {
 /* smartphones */
 @media screen and (max-width: 620px) {
   .change-font {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
   }
   .navbar-brand {
     display: none;
@@ -195,7 +195,7 @@ export default {
     padding-top: 0.1rem;
   }
   .input-counter {
-    width: 2rem;
+    width: 2.3rem;
     cursor: pointer;
   }
 
