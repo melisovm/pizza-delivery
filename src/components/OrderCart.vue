@@ -147,10 +147,12 @@ export default {
           name: this.name,
           phone: this.phone,
           address: this.address,
-          orderList: {
-            productID: this.getProductsInCart.map(element => element.id),
-            productQuantity: this.getProductsInCart.map(element => element.quantity),
-          }
+          orderList: this.getProductsInCart.map(element => {
+            return {
+              product_id: element.id,
+              product_quantity: element.quantity
+            }
+          })
         }
         console.log(orderCart);
         this.submitStatus = 'PENDING'
