@@ -1,6 +1,9 @@
 <template>
   <div class="main">
-    <div v-if="hasProduct()">
+    <div
+      v-if="hasProduct()"
+      class="change-font"
+    >
 
       <div
         class="columns box is-vcentered"
@@ -168,6 +171,9 @@ export default {
 /* Responsiveness */
 /* smartphones */
 @media screen and (max-width: 620px) {
+  .change-font {
+    font-size: 0.5rem;
+  }
   .navbar-brand {
     display: none;
   }
@@ -192,9 +198,7 @@ export default {
     width: 2rem;
     cursor: pointer;
   }
-  * {
-    font-size: 0.8rem;
-  }
+
   .columns {
     display: inline-flex;
     flex-direction: row;
