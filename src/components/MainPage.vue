@@ -21,7 +21,7 @@
 
       <div
         class="box"
-        v-for="(news, index) in this.getNewsOrSales"
+        v-for="(news, index) in this.getPromotions"
         :key="index"
       >
         <article class="media ">
@@ -72,7 +72,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getNewsOrSales']),
+    ...mapGetters(['getPromotions']),
   }
 }
 </script>

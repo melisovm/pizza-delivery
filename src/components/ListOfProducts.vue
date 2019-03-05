@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    
     <div class="columns is-full">
       <div class="column">
         <ul class="cards">
@@ -50,6 +51,7 @@
         </ul>
       </div>
     </div>
+    
   </div>
 </template>
 
@@ -77,6 +79,7 @@ export default {
       'currentProduct',
     ]),
     showNew (value) {
+      // Delete when project is added admin and client side ==>"DD.MY.YYYY"
       let duration = moment(Date.now()).diff(moment(value, "DD.MY.YYYY"));
       if (duration <= 2592000000) {
         return true
