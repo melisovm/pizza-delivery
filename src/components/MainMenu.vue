@@ -87,13 +87,13 @@ export default {
 }
 .box {
   display: grid;
-  grid-template-columns: 7rem 1fr;
+  grid-template-columns: 4rem 1fr;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   margin: 0 0.5em 0.3em 0.5em;
 }
 .menu-content {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 </style>
