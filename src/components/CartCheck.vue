@@ -71,7 +71,11 @@
       v-else
       class="no-item"
     >
-      <i class="far fa-frown fa-5x"></i>
+      <img
+        src="../assets/no-item-pizza.png"
+        alt=""
+        class="no-item-image"
+      >
       <div class="no-item-text">
         У Вас нету добавленного продукта
       </div>
@@ -156,7 +160,7 @@ export default {
   margin-top: 0.5em;
 }
 .no-item-text {
-  margin-top: 2em;
+  margin-top: 0.5em;
 }
 .total-text {
   font-size: 1.5em;
@@ -167,6 +171,9 @@ export default {
 .input-counter {
   width: 2.5em;
   cursor: pointer;
+}
+.no-item-image {
+  max-width: 5em;
 }
 /* Responsiveness */
 /* smartphones */

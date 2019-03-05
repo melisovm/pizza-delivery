@@ -1,6 +1,16 @@
 <template>
   <div class="full">
     <h1 class="title has-text-centered">Добро пожаловать в нашу пиццерию!</h1>
+    <div class="banners">
+      <div class="box menu-bar">
+        <div class="box-image">
+          <img src="http://pngimg.com/uploads/pizza/pizza_PNG44093.png">
+        </div>
+        <div class="box-title">
+          <h3 class="subtitle"><strong>Меню</strong></h3>
+        </div>
+      </div>
+    </div>
     <h3 class="subtitle"> <strong>Новости и Акции</strong></h3>
     <div class="banners">
 
@@ -113,6 +123,9 @@ h1.title {
 .box,
 .subtitle {
   margin: 1em 0.5em 1em 0.5em;
+}
+.menu-bar {
+  text-align: center;
 }
 .is-rounded {
   border-radius: 50%;
