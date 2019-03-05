@@ -82,8 +82,8 @@ export default {
   font-weight: 450;
 }
 .menu-image {
-  width: 5rem;
-  height: 5rem;
+  width: 3rem;
+  height: 3rem;
 }
 .box {
   display: grid;
@@ -94,6 +94,6 @@ export default {
   margin: 0 0.5em 0.3em 0.5em;
 }
 .menu-content {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 </style>
