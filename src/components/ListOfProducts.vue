@@ -20,7 +20,7 @@
                     <img
                       class="image-halal"
                       src="src/assets/halal.jpeg"
-                      v-if="product.halal"
+                      v-if="product.halalState"
                     >
                     <!-- if didnt work this path,the change to src="../../assets/new.png" -->
                     <img
