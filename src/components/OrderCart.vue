@@ -120,7 +120,7 @@ export default {
     }
   },
   validations: {
-    name: { required },
+    name: {},
     phone: { required },
     address: { required }
   },

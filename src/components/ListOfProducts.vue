@@ -109,6 +109,7 @@ export default {
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 0.5rem;
 }
 .cards {
   display: grid;
@@ -122,7 +123,6 @@ export default {
 .card img.card-image {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-  box-shadow: 0 7px 6px -2px rgba(0, 0, 0, 0.19);
 }
 .image-halal {
   position: absolute;

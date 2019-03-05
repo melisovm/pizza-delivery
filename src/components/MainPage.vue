@@ -2,14 +2,19 @@
   <div class="full">
     <h1 class="title has-text-centered">Добро пожаловать в нашу пиццерию!</h1>
     <div class="banners">
-      <div class="box menu-bar">
-        <div class="box-image">
-          <img src="http://pngimg.com/uploads/pizza/pizza_PNG44093.png">
+      <router-link to="/menu">
+        <div class="box menu-bar">
+          <div class="box-image">
+            <img
+              class="pizza-image"
+              src="../assets/menu-pizza.png"
+            >
+          </div>
+          <div class="box-title">
+            <h3 class="subtitle menu-context">Меню</h3>
+          </div>
         </div>
-        <div class="box-title">
-          <h3 class="subtitle"><strong>Меню</strong></h3>
-        </div>
-      </div>
+      </router-link>
     </div>
     <h3 class="subtitle"> <strong>Новости и Акции</strong></h3>
     <div class="banners">
@@ -124,8 +129,18 @@ h1.title {
 .subtitle {
   margin: 1em 0.5em 1em 0.5em;
 }
+.pizza-image {
+  max-width: 5rem;
+}
+.menu-context {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
 .menu-bar {
   text-align: center;
+  display: grid;
+  grid-template-columns: 5rem 2fr;
 }
 .is-rounded {
   border-radius: 50%;

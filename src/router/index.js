@@ -7,6 +7,7 @@ import Dessert from '../components/Dessert';
 import CartCheck from '../components/CartCheck';
 import OrderCart from '../components/OrderCart'
 import MainPage from '../components/MainPage'
+import MainMenu from '../components/MainMenu'
 
 Vue.use(Router);
 export default new Router({
@@ -15,6 +16,11 @@ export default new Router({
       path: '/',
       name: 'MainPage',
       component: MainPage
+    },
+    {
+      path: '/menu',
+      name: 'MainMenu',
+      component: MainMenu
     }, {
       path: '/pizzas',
       name: 'Pizzas',
