@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    
+
     <div class="columns is-full">
       <div class="column">
         <ul class="cards">
@@ -42,7 +42,7 @@
                 <p class="card-footer-item">
                   <a
                     class="button is-primary is-full"
-                    @click="addProductToCart(product)"
+                    @click="addProductToCart(product); $toast.success('Продукт успешно добавлен', '', notificationSystem.options.success);"
                   >Добавить в корзину</a>
                 </p>
               </div>
@@ -51,20 +51,32 @@
         </ul>
       </div>
     </div>
-    
+
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import Vue from 'vue';
+import VueNotifications from 'vue-notifications'
+//For date
 var moment = require('moment');
 
 export default {
   data () {
     return {
-      dateToFilter: Date.now()
-    }
-  }, filters: {
+      dateToFilter: Date.now(),
+      notificationSystem: {
+        options: {
+          success: {
+            position: "topCenter",
+            displayMode: "replace"
+          }
+        }
+      }
+    };
+  },
+  filters: {
     changeDateFilter (value) {
 
     }
@@ -166,11 +178,14 @@ export default {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
   }
+  .container {
+    margin: 0 auto;
+  }
 }
 /* laptops */
 @media screen and (min-width: 1171px) {
   .container {
-    margin-left: 3rem;
+    margin: 0 auto;
   }
 }
 </style>

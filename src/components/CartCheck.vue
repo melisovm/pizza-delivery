@@ -179,7 +179,7 @@ export default {
 /* smartphones */
 @media screen and (max-width: 620px) {
   .change-font {
-    font-size: 0.65rem;
+    font-size: 1rem;
   }
   .navbar-brand {
     display: none;

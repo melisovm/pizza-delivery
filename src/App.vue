@@ -7,6 +7,7 @@
 
 <script>
 import MainNav from './components/MainNav';
+import 'bulma/css/bulma.css'
 
 export default {
   name: 'app',

@@ -3,9 +3,11 @@ import Vuelidate from 'vuelidate'
 import App from './App'
 import router from './router'
 import store from './store'
-import Notifications from 'vue-notification'
+import "izitoast/dist/css/iziToast.css";
+import VueIziToast from "vue-izitoast";
 
-Vue.use(Vuelidate)
+Vue.use(Vuelidate);
+Vue.use(VueIziToast);
 
 new Vue({
   el: '#app',
