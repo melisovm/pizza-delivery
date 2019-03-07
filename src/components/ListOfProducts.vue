@@ -70,7 +70,10 @@ export default {
         options: {
           success: {
             position: "topCenter",
-            displayMode: "replace"
+            displayMode: "replace",
+            closeOnClick: 'true',
+            progressBarColor: 'black',
+
           }
         }
       }
