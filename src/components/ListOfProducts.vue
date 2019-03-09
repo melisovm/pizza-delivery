@@ -73,7 +73,6 @@ export default {
             displayMode: "replace",
             closeOnClick: 'true',
             progressBarColor: 'black',
-
           }
         }
       }
@@ -85,9 +84,6 @@ export default {
     }
   },
   props: ['products'],
-  computed: {
-    ...mapGetters(['getProductsInCart']),
-  },
   methods: {
     ...mapActions([
       'addProduct',
