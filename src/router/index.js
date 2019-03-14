@@ -48,6 +48,6 @@ export default new Router({
       path: '/ordercart',
       name: 'OrderCart',
       component: OrderCart
-    }
+    },
   ]
 });

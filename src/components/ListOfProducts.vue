@@ -33,6 +33,10 @@
               </div>
               <div class="card-content">
                 <p class="title has-text-centered">{{product.name}}</p>
+                <p
+                  class="subtitle"
+                  style="font-size:0.7rem;color:grey;"
+                >{{product.price}} сом</p>
                 <div class="content">
 
                   <p>{{product.description}}</p>
@@ -42,7 +46,7 @@
                 <p class="card-footer-item">
                   <a
                     class="button is-primary is-full"
-                    @click="addProductToCart(product); $toast.success('Продукт успешно добавлен', '', notificationSystem.options.success);"
+                    @click="addProductToCart(product);"
                   >Добавить в корзину</a>
                 </p>
               </div>
@@ -58,25 +62,20 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import Vue from 'vue';
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
 import VueNotifications from 'vue-notifications'
 //For date
 var moment = require('moment');
+
+Vue.use(Buefy)
 
 export default {
   data () {
     return {
       dateToFilter: Date.now(),
-      notificationSystem: {
-        options: {
-          success: {
-            position: "topCenter",
-            displayMode: "replace",
-            closeOnClick: 'true',
-            progressBarColor: 'black',
-          }
-        }
-      }
-    };
+
+    }
   },
   filters: {
     changeDateFilter (value) {
@@ -102,6 +101,12 @@ export default {
     //adding products to Cart.
     addProductToCart (product) {
       this.addProduct(product);
+      this.$toast.open({
+        message: 'Продукт добавлен! ',
+        duration: 1000,
+        position: 'is-top',
+        type: 'is-success'
+      });
     },
     //adding to current product.
     //will use when application will have more functions
