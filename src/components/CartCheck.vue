@@ -186,8 +186,6 @@ export default {
   .navbar-brand {
     display: none;
   }
-  .navbar-item > h3 {
-  }
   .navbar-brand > .navbar-item {
     padding-left: 0;
   }

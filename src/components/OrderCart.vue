@@ -177,12 +177,8 @@ export default {
 .field {
   width: 100%;
 }
-.input-text {
-}
 .buttons {
   margin-top: 1em;
-}
-input.error {
 }
 .error {
   color: #ff3860;
