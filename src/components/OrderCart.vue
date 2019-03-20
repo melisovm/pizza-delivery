@@ -116,7 +116,9 @@ export default {
       phone: '',
       address: '',
       submitStatus: null,
-      product: {}
+      product: {
+        quantity: 0
+      }
     }
   },
   validations: {
@@ -129,7 +131,7 @@ export default {
     //all cost.
     totalPrice () {
       return this.getProductsInCart.reduce((total, next) =>
-        total + (next.totalPrice || next.price), 0);
+        total + (next.quantity * next.price), 0);
     }
   },
   components: {
@@ -149,10 +151,11 @@ export default {
           address: this.address,
           orderList: this.getProductsInCart.map(element => {
             return {
-              product_id: element.id,
+              product_id: element._id,
               product_quantity: element.quantity
             }
-          })
+          }),
+          total: this.totalPrice
         }
         console.log(orderCart);
         this.submitStatus = 'PENDING'

@@ -12,10 +12,7 @@
       >
         <div class="navbar-brand">
           <div class="navbar-item ">
-            <img
-              :src="product.image"
-              :alt="product.name"
-            >
+            <img :src="getImageUrl(product.image)">
           </div>
         </div>
         <div class="navbar-item column is-one-third">
@@ -31,7 +28,6 @@
           <input
             type="text"
             class="input is-primary input-counter"
-            readonly
             v-model="product.quantity"
           >
           <a
@@ -43,7 +39,7 @@
 
         </div>
         <div class="navbar-item">
-          <h3>{{ product.totalPrice || product.price }} сом</h3>
+          <h3>{{ product.quantity * product.price }} сом</h3>
         </div>
         <div class="navbar-end">
           <a
@@ -77,14 +73,14 @@
         class="no-item-image"
       >
       <div class="no-item-text">
-        У Вас нету добавленного продукта
+        У Вас нет добавленного продукта
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions, mapState } from 'vuex';
 
 export default {
   data () {
@@ -95,11 +91,13 @@ export default {
   },
   computed: {
     ...mapGetters(['getProductsInCart']),
+    ...mapState(['defaultUrl']),
     // calculating all total cost.
     totalPrice () {
       return this.getProductsInCart.reduce((total, next) =>
-        total + (next.totalPrice || next.price), 0);
+        total + (next.quantity * next.price), 0);
     },
+
   },
   methods: {
     ...mapActions(['removeProduct',
@@ -107,6 +105,9 @@ export default {
     //checks if cart has any product.
     hasProduct () {
       return this.getProductsInCart.length > 0;
+    },
+    getImageUrl (ImageName) {
+      return this.defaultUrl + '/image/' + ImageName;
     },
     //deleting the product from Cart.
     remove (index) {
@@ -132,7 +133,8 @@ export default {
 
         }
       }
-    }
+    },
+
 
   }
 }
@@ -185,7 +187,6 @@ export default {
     display: none;
   }
   .navbar-item > h3 {
-    font-weight: bold;
   }
   .navbar-brand > .navbar-item {
     padding-left: 0;

@@ -68,7 +68,9 @@
 
 <script>
 export default {
-
+  mounted () {
+    this.$store.dispatch('fetchProduct');
+  }
 }
 </script>
 

@@ -14,20 +14,20 @@
                 <figure class="image is-4by1">
                   <img
                     class="card-image"
-                    :src="product.image"
+                    :src="getImageUrl(product.image)"
                   >
                   <div>
                     <!-- if didnt work this path,the change to src="../../assets/halal.jpeg" -->
                     <img
                       class="image-halal"
                       src="src/assets/halal.jpeg"
-                      v-if="product.halalState"
+                      v-if="product.halalStatus"
                     >
                     <!-- if didnt work this path,the change to src="../../assets/new.png" -->
                     <img
                       class="image-new"
                       src="src/assets/new.png"
-                      v-if="showNew(product.date)"
+                      v-if="showNew(product.created_at)"
                     ></div>
                 </figure>
               </div>
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters, mapState } from 'vuex';
 import Vue from 'vue';
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
@@ -77,6 +77,9 @@ export default {
 
     }
   },
+  computed: {
+    ...mapState(['defaultUrl'])
+  },
   filters: {
     changeDateFilter (value) {
 
@@ -90,7 +93,7 @@ export default {
     ]),
     showNew (value) {
       // Delete when project is added admin and client side ==>"DD.MY.YYYY"
-      let duration = moment(Date.now()).diff(moment(value, "DD.MY.YYYY"));
+      let duration = moment(Date.now()).diff(moment(value));
       if (duration <= 2592000000) {
         return true
       }
@@ -107,6 +110,9 @@ export default {
         position: 'is-top',
         type: 'is-success'
       });
+    },
+    getImageUrl (ImageName) {
+      return this.defaultUrl + '/image/' + ImageName;
     },
     //adding to current product.
     //will use when application will have more functions
