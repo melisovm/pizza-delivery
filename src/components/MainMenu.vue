@@ -1,26 +1,27 @@
 <template>
-  <div class="main">
+  <div class="container">
     <div class="menu-title">
       <h3 class="menu-title-text">
         Меню
       </h3>
     </div>
-    <div class="menu-items">
-      <router-link to='/pizzas'>
-        <div class="box">
-          <div class="menuImage">
-            <img
-              src="../assets/menu/menu-pizza2.png"
-              alt=""
-              class="menu-image"
-            >
-          </div>
-          <div class="menu-content">
-            <h3>Пиццы</h3>
-          </div>
+    <div
+      class="menu-items"
+      v-for="category in getCategories"
+      :key="category._id"
+    >
+      <div class="box">
+        <div class="menuImage">
+          <img
+            alt=""
+            class="menu-image"
+          >
         </div>
-      </router-link>
-      <router-link to='/combo'>
+        <div class="menu-content">
+          <h3>{{category.name}}</h3>
+        </div>
+      </div>
+      <!--<router-link to='/combo'>
         <div class="box">
           <div class="menuImage">
             <img
@@ -61,15 +62,20 @@
             <h3>Дессерты</h3>
           </div>
         </div>
-      </router-link>
+      </router-link> -->
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
+  computed: {
+    ...mapGetters(['getCategories'])
+  },
   mounted () {
     this.$store.dispatch('fetchProduct');
+    this.$store.dispatch('fetchCategories');
   }
 }
 </script>

@@ -146,7 +146,7 @@ export default {
         this.submitStatus = 'ERROR'
       } else {
         const orderCart = {
-          name: this.name,
+          customer_name: this.name,
           phone: this.phone,
           address: this.address,
           orderList: this.getProductsInCart.map(element => {
@@ -155,14 +155,19 @@ export default {
               product_quantity: element.quantity
             }
           }),
-          total: this.totalPrice
+          total_price: this.totalPrice
         }
         console.log(orderCart);
         this.submitStatus = 'PENDING'
-        // simulating that is information sending to back.
-        setTimeout(() => {
-          this.submitStatus = 'OK'
-        }, 2000)
+        this.$store.dispatch("addOrder", orderCart);
+        this.submitStatus = 'OK'
+        this.$toast.open({
+          message: `Ваш заказ принят! `,
+          duration: 3000,
+          position: 'is-top',
+          type: 'is-dark'
+        });
+
       }
     }
   }

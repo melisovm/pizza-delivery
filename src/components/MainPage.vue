@@ -28,7 +28,7 @@
           <div class="media-left">
             <figure class=""></figure>
             <img
-              :src="news.image"
+              :src="getImageUrl(news.image)"
               class="image is-64x64 is-rounded"
             >
           </div>
@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 export default {
   data () {
     return {
@@ -72,7 +72,16 @@ export default {
     }
   },
   computed: {
+    ...mapState(['defaultUrl']),
     ...mapGetters(['getPromotions']),
+  },
+  methods: {
+    getImageUrl (ImageName) {
+      return this.defaultUrl + '/image/' + ImageName;
+    },
+  },
+  mounted () {
+    this.$store.dispatch('fetchPromotions');
   }
 }
 </script>
