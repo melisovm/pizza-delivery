@@ -59,51 +59,20 @@
         class="navbar-menu"
         :class="{'is-active':isOpen}"
       >
-        <div class="navbar-end">
+        <div
+          class="navbar-end"
+          v-for="category in getCategories"
+          :key="category._id"
+        >
           <a
             role="button"
             @click="isOpen = !isOpen"
           >
             <router-link
-              class="navbar-item"
-              to="/"
-            >Главная страница</router-link>
-          </a>
-          <a
-            role="button"
-            @click="isOpen = !isOpen"
-          >
-            <router-link
-              class="navbar-item"
-              to="/pizzas"
-            >Пиццы</router-link>
-          </a>
-          <a
-            role="button"
-            @click="isOpen = !isOpen"
-          >
-            <router-link
-              class="navbar-item"
-              to="/combo"
-            >Комбо</router-link>
-          </a>
-          <a
-            role="button"
-            @click="isOpen = !isOpen"
-          >
-            <router-link
-              class="navbar-item"
-              to="/drink"
-            >Напитки</router-link>
-          </a>
-          <a
-            role="button"
-            @click="isOpen = !isOpen"
-          >
-            <router-link
-              class="navbar-item"
-              to="/dessert"
-            >Десерты</router-link>
+              class="navbar-item menu-button"
+              :to="{ name: 'Products', params: { category: category.code } }"
+              v-if="getCategoryProducts(category.code).length > 0"
+            >{{category.name}}</router-link>
           </a>
         </div>
 
@@ -131,7 +100,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getProductsInCart']),
+    ...mapGetters(['getProductsInCart', 'getCategories', 'getCategoryProducts']),
     //counting how many products has cart.
     totalItem () {
       return this.getProductsInCart.reduce((total, next) =>
@@ -142,12 +111,25 @@ export default {
 </script>
 
 <style scoped>
-.cart-circle {
-  border: 1px solid red;
-}
 .navbar-menu {
   position: absolute;
   width: 100%;
   z-index: 2;
+  font-size: 1.3rem;
+}
+@media screen and (min-width: 1087px) {
+  .navbar-menu {
+    position: fixed;
+    width: auto;
+    margin-left: 55vw;
+    margin-top: 0.6vw;
+  }
+  .menu-button {
+    color: white;
+    margin: 0;
+  }
+  .menu-button:hover {
+    border-radius: 0.4em;
+  }
 }
 </style>

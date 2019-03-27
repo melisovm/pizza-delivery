@@ -17,19 +17,8 @@ export default new Vuex.Store({
   getters: {
     //get news or sales
     getPromotions: state => state.promotions,
-    //get all pizas.
-    getPizzas: state => state.products.filter(element => element.category === "pizzas"),
-    //get all combos.
-    getCombos: state => state.products.filter(element => element.category === "combos"),
-    //get all drinks.
-    getDrinks: state => state.products.filter(element => element.category === "drinks"),
-    //get all desserts.
-    getDesserts: state => state.products.filter(element => element.category === "desserts"),
-    //get product with exact category 
     getCategoryProducts: state => category => state.products.filter(item => item.category === category),
-    //get products in cart
     getProductsInCart: state => state.cartProducts,
-    //get selected product
     getCurrentProduct: state => state.currentProductg,
     getCategories: state => state.categories
   },
