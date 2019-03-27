@@ -64,7 +64,6 @@ export default new Vuex.Store({
     },
     SET_CATEGORIES: (state, categories) => {
       state.categories = categories
-      console.log(state.categories);
     },
     ADD_ORDER: (state, order) => {
       state.orders.push(order);

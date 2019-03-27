@@ -10,10 +10,14 @@
       v-for="category in getCategories"
       :key="category._id"
     >
-      <router-link :to="{ name: 'Products', params: { category: category.code } }">
+      <router-link
+        :to="{ name: 'Products', params: { category: category.code } }"
+        v-if="getCategoryProducts(category.code).length > 0"
+      >
         <div class="box">
           <div class="menuImage">
             <img
+              src="src/assets/favicon.png"
               alt=""
               class="menu-image"
             >
@@ -73,7 +77,7 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['getCategories'])
+    ...mapGetters(['getCategories', 'getCategoryProducts'])
   },
   mounted () {
     this.$store.dispatch('fetchProduct');
