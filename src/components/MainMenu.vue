@@ -10,17 +10,19 @@
       v-for="category in getCategories"
       :key="category._id"
     >
-      <div class="box">
-        <div class="menuImage">
-          <img
-            alt=""
-            class="menu-image"
-          >
+      <router-link :to="{ name: 'Products', params: { category: category.code } }">
+        <div class="box">
+          <div class="menuImage">
+            <img
+              alt=""
+              class="menu-image"
+            >
+          </div>
+          <div class="menu-content">
+            <h3>{{category.name}}</h3>
+          </div>
         </div>
-        <div class="menu-content">
-          <h3>{{category.name}}</h3>
-        </div>
-      </div>
+      </router-link>
       <!--<router-link to='/combo'>
         <div class="box">
           <div class="menuImage">

@@ -68,7 +68,7 @@
       class="no-item"
     >
       <img
-        src="../assets/no-item-pizza.png"
+        src="src/assets/no-item-pizza.png"
         alt=""
         class="no-item-image"
       >

@@ -7,7 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     products: [],
-    defaultUrl: "http://192.168.0.51:4000",
+    defaultUrl: "http://devforge.ddns.net:2000",
     cartProducts: [],
     orders: [],
     promotions: [],
@@ -25,6 +25,7 @@ export default new Vuex.Store({
     getDrinks: state => state.products.filter(element => element.category === "drinks"),
     //get all desserts.
     getDesserts: state => state.products.filter(element => element.category === "desserts"),
+    //get product with exact category 
     getCategoryProducts: state => category => state.products.filter(item => item.category === category),
     //get products in cart
     getProductsInCart: state => state.cartProducts,

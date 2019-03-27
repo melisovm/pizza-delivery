@@ -7,7 +7,7 @@
           <div class="box-image">
             <img
               class="pizza-image"
-              src="../assets/menu-pizza.png"
+              src="src/assets/menu-pizza.png"
             >
           </div>
           <div class="box-title">

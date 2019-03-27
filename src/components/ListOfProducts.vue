@@ -5,7 +5,7 @@
       <div class="column">
         <ul class="cards">
           <li
-            v-for="(product, index) in products"
+            v-for="(product, index) in getCategoryProducts(this.$route.params.category)"
             :key="index"
             class="product"
           >
@@ -20,13 +20,13 @@
                     <!-- if didnt work this path,the change to src="../../assets/halal.jpeg" -->
                     <img
                       class="image-halal"
-                      src="src/assets/halal.jpeg"
+                      src="/src/assets/halal.jpeg"
                       v-if="product.halalStatus"
                     >
                     <!-- if didnt work this path,the change to src="../../assets/new.png" -->
                     <img
                       class="image-new"
-                      src="src/assets/new.png"
+                      src="/src/assets/new.png"
                       v-if="showNew(product.created_at)"
                     ></div>
                 </figure>
@@ -78,7 +78,11 @@ export default {
     }
   },
   computed: {
-    ...mapState(['defaultUrl'])
+    ...mapState(['defaultUrl']),
+    ...mapGetters(['getCategoryProducts']),
+    category () {
+      let category = this.$route.params.category
+    }
   },
   filters: {
     changeDateFilter (value) {
@@ -119,6 +123,9 @@ export default {
     addCurrentProduct (product) {
       this.currentProduct(product);
     }
+  },
+  mounted () {
+    let category = this.$route.params.category
   }
 }
 </script>
